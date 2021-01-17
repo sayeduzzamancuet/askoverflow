@@ -1,19 +1,19 @@
-<div class="btn-group mr-3">
+<div class="container">
   <div class="form-group">
     <label class="col-form-label" for="ddlCompany">Company</label>
-    <select class="dropdown" id="ddlCompany" name="ddlPosition" (change)="setCompanyCriteria($event)">
+    <select class="custom-select" id="ddlCompany" name="ddlPosition" (change)="setCompanyCriteria($event)">
       <option class="dropdown-item"  *ngFor="let opt of companies" [value]="opt">{{opt}}</option>
     </select>
   </div>
   <div class="form-group">
     <label class="col-form-label" for="ddlStack">Stack</label>
-    <select class="dropdown" id="ddlStack" name="ddlPosition" (change)="setStackCriteria($event)">
+    <select class="custom-select" id="ddlStack" name="ddlPosition" (change)="setStackCriteria($event)">
       <option class="dropdown-item"  *ngFor="let opt of stacks" [value]="opt">{{opt}}</option>
     </select>
   </div>
   <div class="form-group">
     <label class="col-form-label" for="ddlPosition">Position</label>
-    <select class="dropdown" id="ddlPosition" name="ddlPosition" (change)="setFinalCriteria($event)">
+    <select class="custom-select" id="ddlPosition" name="ddlPosition" (change)="setFinalCriteria($event)">
       <option class="dropdown-item"  *ngFor="let opt of positions" [value]="opt">{{opt}}</option>
     </select>
   </div>

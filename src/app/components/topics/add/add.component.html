@@ -2,29 +2,34 @@
   <form #addQuestion="ngForm" novalidate (ngSubmit)="onSbmit(addQuestion)">
     <div class="form-group">
       <label for="question" class="col-form-label">Company</label>
-      <select class="dropdown" id="ddlCompany" name="ddlCompany" [(ngModel)]="selectedCompany">
+      <select class="custom-select" id="ddlCompany" name="ddlCompany" [(ngModel)]="selectedCompany">
         <option class="dropdown-item"  *ngFor="let opt of companies" [value]="opt">{{opt}}</option>
       </select>
     </div>
     <div class="form-group">
       <label for="question" class="col-form-label">Stack</label>
-      <select class="dropdown" id="ddlStack" name="ddlStack" [(ngModel)]="selectedStack">
+      <select class="custom-select" id="ddlStack" name="ddlStack" [(ngModel)]="selectedStack">
         <option class="dropdown-item"  *ngFor="let opt of stacks" [value]="opt">{{opt}}</option>
       </select>
     </div>
     <div class="form-group">
       <label for="question" class="col-form-label">Position</label>
-      <select class="dropdown" id="ddlPosition" name="ddlPosition" [(ngModel)]="selectedPosition">
+      <select class="custom-select" id="ddlPosition" name="ddlPosition" [(ngModel)]="selectedPosition">
         <option class="dropdown-item"  *ngFor="let opt of positions" [value]="opt">{{opt}}</option>
       </select>
     </div>
-    <div class="form-group">
-      <label for="question" class="col-form-label">Question</label>
-      <textarea type="text" id="question" name="question" [(ngModel)]="addedQuestion.askedQuestion"></textarea>
+
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Question</span>
+      </div>
+        <textarea class="form-control" aria-label="Question" id="question" name="question" [(ngModel)]="addedQuestion.askedQuestion"></textarea>
     </div>
-    <div class="form-group">
-      <label for="answere">Answere</label>
-      <textarea type="text" id="answere" name="anwsere" [(ngModel)]="addedQuestion.answer"></textarea>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Answere</span>
+      </div>
+      <textarea class="form-control" aria-label="Answere" id="answere" name="anwsere" [(ngModel)]="addedQuestion.answer"></textarea>
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Save</button>

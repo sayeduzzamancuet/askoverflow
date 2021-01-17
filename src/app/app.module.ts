@@ -18,6 +18,7 @@ import {AddComponent} from './components/topics/add/add.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { CompanyComponent } from './components/topics/company/company.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     TopicsComponent,
     TblheadComponent,
     DropdownsComponent,
-    AddComponent
+    AddComponent,
+    CompanyComponent
   ],
   imports: [
     BrowserModule,

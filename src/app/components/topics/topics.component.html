@@ -1,0 +1,58 @@
+<div class="container">
+  <div>
+    <app-dropdowns (dropdownSelectedValues)="setCriterias($event)"></app-dropdowns>
+    <button (click)="getAllQustions()"  class="btn btn-primary">Fetch</button>
+  </div>
+  <div>
+    <a routerLink="add">Add a question</a>
+  </div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="_id">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element._id}} </td>
+    </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="company">
+      <th mat-header-cell *matHeaderCellDef> company </th>
+      <td mat-cell *matCellDef="let element"> {{element.company}} </td>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="stack">
+      <th mat-header-cell *matHeaderCellDef> stack </th>
+      <td mat-cell *matCellDef="let element"> {{element.stack}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> position </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="askedQuestion">
+      <th mat-header-cell *matHeaderCellDef> askedQuestion </th>
+      <td mat-cell *matCellDef="let element"> {{element.askedQuestion}} </td>
+    </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="answer">
+      <th mat-header-cell *matHeaderCellDef> answer </th>
+      <td mat-cell *matCellDef="let element"> {{element.answer}} </td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [length]="dataSize"
+                 [pageSize]="pageSize"
+                 [pageIndex]="pageIndex"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="onPaginateChange($event)">
+  </mat-paginator>
+</div>

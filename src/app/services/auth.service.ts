@@ -26,13 +26,12 @@ export class AuthService {
 
 
   getToken(userModel: User): Observable<string> {
-    const TOKEN_URL = 'http://localhost:11305/api/auth/token';
+    const TOKEN_URL = 'auth/token';
     const param = {
       'userName' : userModel.name,
       'password' : userModel.password
     };
-    const requestHeaders = new HttpHeaders().append('Content-Type', 'application/json');
-    return this.httpClient.post<any>(TOKEN_URL, param, {headers: requestHeaders}).pipe(catchError(this.handleErrorFunc));
+    return this.httpClient.post<any>(TOKEN_URL, param).pipe(catchError(this.handleErrorFunc));
   }
   handleErrorFunc(error){
     return throwError(error.Message||'server error')

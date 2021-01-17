@@ -10,7 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TopicsComponent } from './components/topics/topics.component';
 import {AuthGuard} from './auth.guard';
-import {HttpClientModule,HttpClient} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule, HttpInterceptor} from '@angular/common/http';
 import { TblheadComponent } from './components/topics/tblhead/tblhead.component';
 import {CoreModule} from './core/core.module';
 import { DropdownsComponent } from './components/topics/dropdowns/dropdowns.component';
@@ -19,6 +19,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { CompanyComponent } from './components/topics/company/company.component';
+import {RequestInterceptorService} from './services/request-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,11 @@ import { CompanyComponent } from './components/topics/company/company.component'
     MatTableModule,
     MatPaginatorModule
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: RequestInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
